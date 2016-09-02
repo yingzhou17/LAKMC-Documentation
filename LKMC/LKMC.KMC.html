@@ -1,0 +1,731 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>LKMC.KMC module &mdash; LKMC 150623-1236-g1254817 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '150623-1236-g1254817',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="LKMC 150623-1236-g1254817 documentation" href="../index.html" />
+    <link rel="up" title="LKMC package" href="LKMC.html" />
+    <link rel="next" title="LKMC.Lammps module" href="LKMC.Lammps.html" />
+    <link rel="prev" title="LKMC.Input module" href="LKMC.Input.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="LKMC.Lammps.html" title="LKMC.Lammps module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="LKMC.Input.html" title="LKMC.Input module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">LKMC 150623-1236-g1254817 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >LKMC</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="LKMC.html" accesskey="U">LKMC package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-LKMC.KMC">
+<span id="lkmc-kmc-module"></span><h1>LKMC.KMC module<a class="headerlink" href="#module-LKMC.KMC" title="Permalink to this headline">¶</a></h1>
+<p>KMC master script.</p>
+<dl class="class">
+<dt id="LKMC.KMC.KMCRunner">
+<em class="property">class </em><code class="descclassname">LKMC.KMC.</code><code class="descname">KMCRunner</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#KMCRunner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.KMCRunner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>KMC runner object.</p>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="LKMC.KMC.KMCRunner.addIniEigenValCalcs">
+<code class="descname">addIniEigenValCalcs</code><span class="sig-paren">(</span><em>jobID</em>, <em>iniEVList</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#KMCRunner.addIniEigenValCalcs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.KMCRunner.addIniEigenValCalcs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add initial eigenvalue calculations on volumes</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="LKMC.KMC.KMCRunner.addMissedEscapeTransitions">
+<code class="descname">addMissedEscapeTransitions</code><span class="sig-paren">(</span><em>resultsMaxIndex</em>, <em>basinI</em>, <em>basinVolumeNum</em>, <em>extraReuse</em>, <em>hashkey</em>, <em>generalVolNum</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#KMCRunner.addMissedEscapeTransitions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.KMCRunner.addMissedEscapeTransitions" title="Permalink to this definition">¶</a></dt>
+<dd><p>When a new basin state is created, one needs to call this method to add the escaping transitions, found earlier in the search process, to the basin.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>resultsMaxIndex</strong> : integer</p>
+<blockquote>
+<div><p>The number of transitions in the results dictionary when the method is called</p>
+</div></blockquote>
+<p><strong>basinI</strong> : basin object</p>
+<blockquote>
+<div><p>The basin to which we are adding escape transitions</p>
+</div></blockquote>
+<p><strong>basinVolumeNum</strong> : integer</p>
+<blockquote>
+<div><p>The internal reference of the Initial defect volume within basinI</p>
+</div></blockquote>
+<p><strong>extraReuse</strong> : list of &#8216;volTransObj&#8217;s</p>
+<blockquote>
+<div><p>Should not be altered in anyway, can probably be removed from this method, but take care with calls to saveResultsToBasin</p>
+</div></blockquote>
+<p><strong>hashkey</strong> : string</p>
+<blockquote>
+<div><p>The hashkey of the initial state</p>
+</div></blockquote>
+<p><strong>generalVolNum</strong> : internal</p>
+<blockquote class="last">
+<div><p>The reference of the Initial defect in the housekeeping of the general (non-basin) code.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="LKMC.KMC.KMCRunner.addRefinement">
+<code class="descname">addRefinement</code><span class="sig-paren">(</span><em>volumeIndex</em>, <em>transObjDict</em>, <em>repeat=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#KMCRunner.addRefinement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.KMCRunner.addRefinement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add refinement on volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="LKMC.KMC.KMCRunner.addRefinementsAndSearches">
+<code class="descname">addRefinementsAndSearches</code><span class="sig-paren">(</span><em>volumeIndex</em>, <em>storeTransIfSearching</em>, <em>transObjDict</em>, <em>fixSearchDict=None</em>, <em>volTransObject=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#KMCRunner.addRefinementsAndSearches"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.KMCRunner.addRefinementsAndSearches" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add refinement and searches on volume when a volume is not fully explored.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>volumeIndex</strong> : int</p>
+<blockquote>
+<div><p>The index for the defect volume in the current state</p>
+</div></blockquote>
+<p><strong>storeTransIfSearching: bool</strong></p>
+<blockquote>
+<div><p>Option to store transitions for reuse later on</p>
+</div></blockquote>
+<p><strong>transObjDict: dictionary</strong></p>
+<blockquote>
+<div><p>Dictionary of  transition objects for current state</p>
+</div></blockquote>
+<p><strong>fixSearchDict :</strong></p>
+<blockquote>
+<div><p>Dictionary of fixed transition directions</p>
+</div></blockquote>
+<p><strong>volTransObject: volumeTransitionObject</strong></p>
+<blockquote class="last">
+<div><p>An existing VTO for this defect volume. Default = None</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="LKMC.KMC.KMCRunner.addSearches">
+<code class="descname">addSearches</code><span class="sig-paren">(</span><em>volumeIndex</em>, <em>storeTransIfSearching</em>, <em>transObjDict</em>, <em>fixSearchDict=None</em>, <em>volTransObject=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#KMCRunner.addSearches"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.KMCRunner.addSearches" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add searches on volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="LKMC.KMC.KMCRunner.basinReport">
+<code class="descname">basinReport</code><span class="sig-paren">(</span><em>error=0</em>, <em>writeVolumes=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#KMCRunner.basinReport"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.KMCRunner.basinReport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes current information about existng basins in a human friendly format</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>error</strong> : int</p>
+<p><strong>Signifies the output file label</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>0 : Ordinary output after getTransitions (default)</li>
+<li>1 : Dump of data after inconsistent pair is discovered in saveResultsToBasin</li>
+<li>2 : Report on state of affairs before attempting to fix inconsistent pairs in saveResultsToBasin</li>
+<li>3 : Dump of data after irreparable current defect volume is encountered</li>
+<li>4 : Report on state of affairs before removing an escaping transition from a basin because it needs to be replaced with a new internal transition.</li>
+<li>5 : Report for basins after a repair has been actioned</li>
+<li>6 : Pre-integrity check. Removed if no corrections made.</li>
+<li>7 : Temporary basin report made at the beginning of a step</li>
+</ul>
+</div></blockquote>
+<p><strong>writeVolumes</strong> : bool</p>
+<blockquote>
+<div><p>Controls whether basin defect volume are written to file (default is False)</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>fPath</strong> :  string</p>
+<blockquote class="last">
+<div><p>Path to basin report file. Only returned if method is called in with error=6.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="92%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>self.uts</td>
+<td>(int) The unix timestamp at the start of the simulation. Used to create a unique directory.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="LKMC.KMC.KMCRunner.basinReportConnectivity">
+<code class="descname">basinReportConnectivity</code><span class="sig-paren">(</span><em>basin</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#KMCRunner.basinReportConnectivity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.KMCRunner.basinReportConnectivity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns simple connectivity matrix designed for human readabilty.
+Not to be confused with the more complex version created by buildConnectivity.
+Additionally returns a list of inconsistent (i.e. asymetries) in the basin.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>basin</strong> : basin object</p>
+<blockquote>
+<div><p>The basin whose connectivity matrix one wants to seee</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>connectivity</strong> : list</p>
+<blockquote>
+<div><p>For N states, this is an N by N matrix of direct connections within the basin.</p>
+</div></blockquote>
+<p><strong>inconsistent</strong> : list</p>
+<blockquote class="last">
+<div><p>A list of all asymetries in the bain.
+Each element is itself a length four list of the two states, and the respective inconsistent connections.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="LKMC.KMC.KMCRunner.consistentBasinReuseCheck">
+<code class="descname">consistentBasinReuseCheck</code><span class="sig-paren">(</span><em>currentOnly=True</em>, <em>bTol=0.1</em>, <em>lowBarrier=0.1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#KMCRunner.consistentBasinReuseCheck"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.KMCRunner.consistentBasinReuseCheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compares explored basin states to the reuse defect volumes to check consistency. Writes findings to file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>currentOnly</strong> : bool</p>
+<blockquote>
+<div><p>Limit the check to only the current state of basins (Default = True)</p>
+</div></blockquote>
+<p><strong>bTol</strong> : float</p>
+<blockquote>
+<div><p>The tolarance barriers are allow to differ by given as a ratio (Default = 0.1, i.e 10%)</p>
+</div></blockquote>
+<p><strong>lowBarrier</strong> : float</p>
+<blockquote class="last">
+<div><p>The maxiuam height a barrier has to be to be exempt from the tolarance check (Default = 0.1 eV)</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="LKMC.KMC.KMCRunner.doesTransitionExist">
+<code class="descname">doesTransitionExist</code><span class="sig-paren">(</span><em>volume</em>, <em>pHash</em>, <em>volumeNum</em>, <em>fBarrier</em>, <em>rBarrier</em>, <em>sadCOM</em>, <em>sadMom</em>, <em>addPair</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#KMCRunner.doesTransitionExist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.KMCRunner.doesTransitionExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>For a given basin defect volume, this method will search for a transition, and return whether it appears in it.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>volume</strong> : basin defect volume object</p>
+<blockquote>
+<div><p>The defect volume to search in</p>
+</div></blockquote>
+<p><strong>transIndex</strong> : int</p>
+<blockquote>
+<div><p>The index of the transition to search for</p>
+</div></blockquote>
+<p><strong>pHash</strong> : string</p>
+<blockquote>
+<div><p>The hash key of the primary (non-duplicate) final defect volume of the transition</p>
+</div></blockquote>
+<p><strong>volumeNum</strong> : int</p>
+<blockquote>
+<div><p>The basin index of the defect volume of the final state</p>
+</div></blockquote>
+<p><strong>sadCOM</strong> : list</p>
+<blockquote>
+<div><p>The saddle point&#8217;s centre of mass</p>
+</div></blockquote>
+<p><strong>sadMom</strong> : list</p>
+<blockquote>
+<div><p>The saddle point&#8217;s moment</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>transExist</strong> : bool</p>
+<blockquote>
+<div><p>Returned as True if the transition is found to exist, othrwise False.</p>
+</div></blockquote>
+<p><strong>trans</strong> : Transition object</p>
+<blockquote class="last">
+<div><p>The matching transition.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="LKMC.KMC.KMCRunner.getBasinDetails">
+<code class="descname">getBasinDetails</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#KMCRunner.getBasinDetails"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.KMCRunner.getBasinDetails" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extracts the correct basin information from the map for a given transition event.
+Code lifted from now defunct method belong2Basin (see old versions of the repository)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>index</strong> : int</p>
+<blockquote>
+<div><p>Index of the selected event in the results dictionary</p>
+</div></blockquote>
+<p><strong>self.searchResults</strong> : KMCStepResults object</p>
+<blockquote>
+<div><p>Has attribute resultsDict &#8211; a dictionary object containing information about available transitions.</p>
+</div></blockquote>
+<p><strong>self.basinList</strong> : list</p>
+<blockquote>
+<div><p>A list of al the basin objects created.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>basinNum</strong> : int</p>
+<blockquote>
+<div><p>The basinList index of the basin corresponding to the event.</p>
+</div></blockquote>
+<p><strong>volumeNum</strong> : int</p>
+<blockquote>
+<div><p>The index of the selected volume within the basin.</p>
+</div></blockquote>
+<p><strong>dupFlag</strong> : bool</p>
+<blockquote class="last">
+<div><p>Denotes whether the volume selected is a duplcate state (True means duplicate).</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="LKMC.KMC.KMCRunner.getLastCascTime">
+<code class="descname">getLastCascTime</code><span class="sig-paren">(</span><em>step</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#KMCRunner.getLastCascTime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.KMCRunner.getLastCascTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve the time of the last cascade event from cascAttributes.out.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="LKMC.KMC.KMCRunner.getTransitions">
+<code class="descname">getTransitions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#KMCRunner.getTransitions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.KMCRunner.getTransitions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get trans new.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="LKMC.KMC.KMCRunner.loadTransitionFixFiles">
+<code class="descname">loadTransitionFixFiles</code><span class="sig-paren">(</span><em>dirname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#KMCRunner.loadTransitionFixFiles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.KMCRunner.loadTransitionFixFiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load fix files</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="LKMC.KMC.KMCRunner.lowBarrierProcessing">
+<code class="descname">lowBarrierProcessing</code><span class="sig-paren">(</span><em>result</em>, <em>volNum</em>, <em>dicIndex=-1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#KMCRunner.lowBarrierProcessing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.KMCRunner.lowBarrierProcessing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies the basin to which a transition should be added, including creating new basins where necessary.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>result</strong> : result object</p>
+<blockquote>
+<div><p>The specific result (ie transition) that we are attempting to add</p>
+</div></blockquote>
+<p><strong>volNum</strong> : Integer</p>
+<blockquote class="last">
+<div><p>The index of the transition&#8217;s initial state</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="LKMC.KMC.KMCRunner.makeVisualiserLink">
+<code class="descname">makeVisualiserLink</code><span class="sig-paren">(</span><em>kmcIndex</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#KMCRunner.makeVisualiserLink"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.KMCRunner.makeVisualiserLink" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a link in the Visualiser directory to KMC file with index <cite>kmcIndex</cite></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="LKMC.KMC.KMCRunner.mapDVsToBasins">
+<code class="descname">mapDVsToBasins</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#KMCRunner.mapDVsToBasins"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.KMCRunner.mapDVsToBasins" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an array mapping the current state&#8217;s defect volumes to super-basins</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>self.basinList</strong> : list</p>
+<blockquote>
+<div><p>List of basin objects in the simulation</p>
+</div></blockquote>
+<p><strong>self.currentState</strong> : lattice object</p>
+<blockquote>
+<div><p>Decribes the current state of the atoms in the simulation</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>map</strong> : List</p>
+<p>Array indicating the mapping of defect volumes to super-basins (&#8220;returned&#8221; as attribute on KMCRunner).</p>
+<blockquote>
+<div><ul class="simple">
+<li>If a defect volume, i, in the current state, is not part of a super-basin Map[i] will be None.</li>
+</ul>
+</div></blockquote>
+<p>Otherwise,</p>
+<blockquote class="last">
+<div><ul class="simple">
+<li>map[i][0] indicates the index of the super-basin that the defect volume, i, is part of.</li>
+<li>map[i][1] indicates the defect volume&#8217;s index within the super-basin</li>
+<li>map[i][2] is True when the defect volume is a duplicate basin state, and is otherwise False.</li>
+</ul>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="LKMC.KMC.KMCRunner.prepareToResume">
+<code class="descname">prepareToResume</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#KMCRunner.prepareToResume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.KMCRunner.prepareToResume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepare to resume KMC simulation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="LKMC.KMC.KMCRunner.purgeBasins">
+<code class="descname">purgeBasins</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#KMCRunner.purgeBasins"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.KMCRunner.purgeBasins" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes any basins not currently in use.
+A basin may have been escaped without the selection of an escaping transition event. Possible causes include:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Two defect volumes have migrated within graph radius of each other, changing the final hashkey and causing the system to be in a state not recognised as part of a basin. While not ideal that we have to delete the basin and build a new one, this is correct behavior.</li>
+<li>A basin transition has been excuted improperly, leading the system to be in a new state, not recognised as part of an existing basin. This is improper behavior, and if you observe that it happening, you have a problem.</li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="LKMC.KMC.KMCRunner.readDefectVolumes">
+<code class="descname">readDefectVolumes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#KMCRunner.readDefectVolumes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.KMCRunner.readDefectVolumes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read in volumes from the defect volumes directory</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="LKMC.KMC.KMCRunner.removeBasin">
+<code class="descname">removeBasin</code><span class="sig-paren">(</span><em>basinNum</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#KMCRunner.removeBasin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.KMCRunner.removeBasin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes basins from the basin list and updates the map accordingly</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>basinNum</strong> : int</p>
+<blockquote class="last">
+<div><p>The index of the basin to remove</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="LKMC.KMC.KMCRunner.run">
+<code class="descname">run</code><span class="sig-paren">(</span><em>inputState=None</em>, <em>refState=None</em>, <em>simulationTime=0.0</em>, <em>KMCStep=0</em>, <em>storeSearchResults=False</em>, <em>server_init=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#KMCRunner.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.KMCRunner.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run KMC.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="LKMC.KMC.KMCRunner.saddleDetailsForBasin">
+<code class="descname">saddleDetailsForBasin</code><span class="sig-paren">(</span><em>result</em>, <em>volIndex</em>, <em>cellDims</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#KMCRunner.saddleDetailsForBasin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.KMCRunner.saddleDetailsForBasin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds COM and moment for saddle points in their own frame of reference.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>result</strong> : ClientServerInterface.Result</p>
+<blockquote>
+<div><p>Result object with the saddle of interest</p>
+</div></blockquote>
+<p><strong>volIndex</strong> : int</p>
+<blockquote>
+<div><p>The defect volume number of the final</p>
+</div></blockquote>
+<p><strong>cellDims</strong> : np.array</p>
+<blockquote>
+<div><p>Dimentions of the simulation cell</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>com</strong> : list</p>
+<blockquote>
+<div><p>Saddle centre of mass</p>
+</div></blockquote>
+<p><strong>moment</strong> : list</p>
+<blockquote class="last">
+<div><p>Saddle moment</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="LKMC.KMC.KMCRunner.saveResultsToBasin">
+<code class="descname">saveResultsToBasin</code><span class="sig-paren">(</span><em>basinI</em>, <em>volumeNumIni</em>, <em>volumeNumFin</em>, <em>dupFlagIni</em>, <em>dupFlagFin</em>, <em>result</em>, <em>extraReuse</em>, <em>volNum</em>, <em>dicIndex=-1</em>, <em>addPair=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#KMCRunner.saveResultsToBasin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.KMCRunner.saveResultsToBasin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Following a call to lowBarrierProcessing, this method saves a transition result to the appropriate basin, or otherwise reports if was already stored.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>basinI</strong> : basin object</p>
+<blockquote>
+<div><p>The basin object we are attempting to add a transition to.</p>
+</div></blockquote>
+<p><strong>volumeNumIni</strong> : int</p>
+<blockquote>
+<div><p>The basin index of the defect volume of the initital state</p>
+</div></blockquote>
+<p><strong>volumeNumFin</strong> : int</p>
+<blockquote>
+<div><p>The basin index of the defect volume of the final state</p>
+</div></blockquote>
+<p><strong>dupFlagIni</strong> : bool</p>
+<blockquote>
+<div><p>Has the initital state been flagged as a duplicate?</p>
+</div></blockquote>
+<p><strong>dupFlagFin</strong> : bool</p>
+<blockquote>
+<div><p>Has the final state been flagged as a duplicate?</p>
+</div></blockquote>
+<p><strong>result</strong> : result object</p>
+<blockquote>
+<div><p>The specific result (ie transition) that we are attempting to add</p>
+</div></blockquote>
+<p><strong>dicIndex</strong> : integer</p>
+<blockquote>
+<div><p>The index of the results dictionary to use. Default = -1</p>
+</div></blockquote>
+<p><strong>addPair</strong> : bool</p>
+<blockquote>
+<div><p>Option to add transitions in pairs (True, default option), or to add only single transitions to the basin (False).
+The latter should only be used for transitions that escape the basin.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>status</strong> : int</p>
+<blockquote>
+<div><p>Returned as zero if transition was added sucessfully or if transition was already part of a basin, otherwise returned as 1.</p>
+</div></blockquote>
+<p><strong>alreadyInBasin</strong> : bool</p>
+<blockquote class="last">
+<div><p>Indicated if the transtions was already in the basin before the call to this method.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="LKMC.KMC.KMCRunner.selectEvent">
+<code class="descname">selectEvent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#KMCRunner.selectEvent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.KMCRunner.selectEvent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select event from results.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="LKMC.KMC.KMCRunner.updateRates">
+<code class="descname">updateRates</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#KMCRunner.updateRates"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.KMCRunner.updateRates" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="LKMC.KMC.KMCRunner.verifyBasinCurrentDV">
+<code class="descname">verifyBasinCurrentDV</code><span class="sig-paren">(</span><em>basin</em>, <em>fatal=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#KMCRunner.verifyBasinCurrentDV"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.KMCRunner.verifyBasinCurrentDV" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure correct current DV for basin</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>basin</strong> : basin object</p>
+<blockquote>
+<div><p>The basin whose currentDV one wishes to verify</p>
+</div></blockquote>
+<p><strong>fatal</strong> : bool</p>
+<blockquote>
+<div><p>Crash on repair failure</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True</p>
+<blockquote>
+<div><p>If changes to currentDV are made</p>
+</div></blockquote>
+<p>False</p>
+<blockquote class="last">
+<div><p>If no changes are mare to currentDV</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="LKMC.KMC.KMCRunner.writeAllTrans">
+<code class="descname">writeAllTrans</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#KMCRunner.writeAllTrans"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.KMCRunner.writeAllTrans" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints out all results available in selectEvent for debug</p>
+<p>TODO: May wish to be deleted in future</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="LKMC.KMC.commandLineArgs">
+<code class="descclassname">LKMC.KMC.</code><code class="descname">commandLineArgs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#commandLineArgs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.commandLineArgs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse command line arguments</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="LKMC.KMC.main">
+<code class="descclassname">LKMC.KMC.</code><code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.main" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="LKMC.KMC.runKMCNew">
+<code class="descclassname">LKMC.KMC.</code><code class="descname">runKMCNew</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#runKMCNew"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.runKMCNew" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run new version of KMC.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="LKMC.KMC.tempResult">
+<em class="property">class </em><code class="descclassname">LKMC.KMC.</code><code class="descname">tempResult</code><span class="sig-paren">(</span><em>final=None</em>, <em>saddle=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/LKMC/KMC.html#tempResult"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#LKMC.KMC.tempResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>An object to temporarily hold a final state and a saddle state during addMergeResultToDict, so as to be passed to saveResultsToBasin</p>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>final</td>
+<td>(lattice object) A lattice object hold the final state</td>
+</tr>
+<tr class="row-even"><td>saddle</td>
+<td>(lattice object) A lattice object hold the saddle state</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="LKMC.Input.html"
+                        title="previous chapter">LKMC.Input module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="LKMC.Lammps.html"
+                        title="next chapter">LKMC.Lammps module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/LKMC/LKMC.KMC.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="LKMC.Lammps.html" title="LKMC.Lammps module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="LKMC.Input.html" title="LKMC.Input module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">LKMC 150623-1236-g1254817 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >LKMC</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="LKMC.html" >LKMC package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Chris Scott, Tomas Lazauskas, Miao Yu.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>
